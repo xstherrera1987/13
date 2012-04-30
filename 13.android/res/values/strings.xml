@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="hello">ftw constant string</string>
+    <string name="app_name">13.android</string>
+
+</resources>
