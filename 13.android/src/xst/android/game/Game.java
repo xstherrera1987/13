@@ -3,7 +3,7 @@ import xst.android.GameController;
 import xst.android.Hand;
 import xst.android.GameAI;
 import xst.android.ai.AI_00;				// default AI class
-
+/* some comment */
 public class Game {
 	int roundState;
 	
