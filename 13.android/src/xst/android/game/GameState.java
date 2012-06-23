@@ -1,13 +1,20 @@
 package xst.android.game;
-import xst.android.Hand;
 import static xst.android.ControlCodes.*;
-import static xst.android.Plays.*;
+import java.util.Random;
 
 public class GameState {
 	// game state and hands data
-	final byte[] state = new byte[52];				// the state of each of the 52 cards
-	final byte[][] hands = new byte[4][13];			// this data structure should be synchronized with state[]
-	final byte[] lastCard = new byte[4];			// index of last card in each player's hand
+	final byte[] state;					// the state of each of the 52 cards
+	final byte[][] hands;				// this data structure should be synchronized with state[]
+	final byte[] lastCard;		 		// index of last card in each player's hand
+	Random r;
+	
+	public GameState() {
+		state = new byte[52];
+		hands = new byte[4][13];
+		lastCard = new byte[4];
+		r = new Random();
+	}
 	
 	// precondition: none
 	// postcondition: reads state[] and fills hands[], updates lastCard[]
@@ -69,70 +76,16 @@ public class GameState {
 
 	// precondition: none
 	// postcondition: fills state[] with values (eg. deals cards randomly)
+	//		NOTE: Fisher–Yates shuffle, inside-out version
 	public void deal() {
-		int[] total = new int[4];							// how many cards each player has
-		boolean alt = false;								// this variable alternates on every iteration
-		boolean strongRerandomize, otherRerandomize;		// used when regenerating random number
-		
-		int random=0;										// the player who is assigned this card
-		final int PRIME = 13;								// a prime number for calculations
-		final int EVEN = 60;								// an even number for calculations
-		final int MIN_EXEC = 111;							// minimum iterations of loops
-		long a=0,b=0;
-		int i=0, j=0, k=0, limOut, limIn;
-		for (i=0;i<52; i++) {
-			// a will be the execution time of some arithmetic calculations
-			a = System.nanoTime();							// start time
-			// the division yields an irrational number, so this pattern is slightly random
-			limOut = ((i * PRIME) % EVEN) +MIN_EXEC;	// amount of iterations of outer loop (even number)
-			limIn = (int) (a % (limOut + PRIME)) +MIN_EXEC;	// amount of iterations of inner loop (odd number)
-			b = 0;											// this holds result of calculations
-			for (j=0; j<limOut; j++)
-				for (k=0; k<limIn; k++)
-					b += PRIME;
-			a = System.nanoTime() - a;						// difference in clock readings
-			// one final calculation for good measure
-			b = alt ? b +(limOut-limIn) : b +(limIn-limOut);
-			
-			// random = ExTime + ResultOfCalculation
-			random = (int) (a + b) % 4;
-			
-			// first 12 cards (strongest) are dealt more fairly
-			if (i<12) {
-				// assign this card to player, if she has less than 4 cards
-				if (total[random] < 3) {
-					state[i] = (byte) random;
-					total[random]++;
-				} else {
-					// if that player already had 4 cards, chose diff player
-					strongRerandomize = true;
-					while (total[random] >= 3 && strongRerandomize) {
-						random = alt ? ((random+1) %4) : ((random+3) %4);
-						if (total[random] < 3) {
-							state[i] = (byte) random;
-							total[random]++;
-							strongRerandomize = false;
-						}
-					}
-				}
-			} else {
-				// assign this card to player, if she has less than 13 cards
-				if (total[random] < 13) {
-					state[i] = (byte) random;
-					total[random]++;
-				} else {
-					// if that player already had 4 cards, chose diff player
-					otherRerandomize = true;
-					while (total[random] >= 13 && otherRerandomize) {
-						random = alt ? ((random+1) %4) : ((random+3) %4);
-						if (total[random] < 13) {
-							state[i] = (byte) random;
-							total[random]++;
-							otherRerandomize = false;
-						}
-					}
-				}
-			}
+		int j;
+		state[0] = 0;
+		for (int i=1; i<52; i++) {
+			// need random value between 0 and i, inclusive
+			// nextInt returns values between 0 and i-1, inclusive
+			j = r.nextInt(i+1);
+			state[i] = state[j];
+			state[j] = (byte) i;
 		}
 	}
 }
