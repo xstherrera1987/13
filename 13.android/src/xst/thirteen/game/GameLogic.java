@@ -1,6 +1,6 @@
-package xst.android.game;
-import static xst.android.Plays.*;
-import static xst.android.ControlCodes.*;
+package xst.thirteen.game;
+import static xst.thirteen.ControlCodes.*;
+import static xst.thirteen.Plays.*;
 
 // game rules and gameplay management
 

@@ -1,8 +1,8 @@
-package xst.android.game;
-import xst.android.GameController;
-import xst.android.Hand;
-import xst.android.GameAI;
-import xst.android.ai.AI_00;
+package xst.thirteen.game;
+import xst.thirteen.GameController;
+import xst.thirteen.Hand;
+import xst.thirteen.ai.AI_00;
+import xst.thirteen.ai.GameAI;
 public class Game {
 	int roundState;
 	

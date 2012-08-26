@@ -1,5 +1,6 @@
-package xst.android.game;
-import static xst.android.ControlCodes.*;
+package xst.thirteen.game;
+import static xst.thirteen.ControlCodes.*;
+
 import java.util.Random;
 
 public class GameState {

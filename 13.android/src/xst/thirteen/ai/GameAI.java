@@ -1,5 +1,6 @@
-package xst.android;
-import xst.android.game.Game;
+package xst.thirteen.ai;
+import xst.thirteen.Hand;
+import xst.thirteen.game.Game;
 public interface GameAI {
 	// precondition: gameState is in initial state, player has the 3S
 	// postcondition: returns the hand that player chooses to play

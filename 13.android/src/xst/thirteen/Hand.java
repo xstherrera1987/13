@@ -1,5 +1,5 @@
-package xst.android;
-import xst.android.game.GameLogic;
+package xst.thirteen;
+import xst.thirteen.game.GameLogic;
 // each of 13 elements is a card represented by its integer value
 // in simple hierarchical order 0 is "2H" where 51 is "3S"
 public class Hand {

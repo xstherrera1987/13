@@ -1,6 +1,6 @@
-package xst.android;
-import xst.android.game.Game;
-import static xst.android.ControlCodes.*;
+package xst.thirteen;
+import xst.thirteen.game.Game;
+import static xst.thirteen.ControlCodes.*;
 
 public abstract class GameController {
 	Game game;

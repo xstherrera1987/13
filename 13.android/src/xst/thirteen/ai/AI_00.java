@@ -1,8 +1,7 @@
-package xst.android.ai;
-import xst.android.game.Game;
-import xst.android.GameAI;
-import xst.android.Hand;
-import static xst.android.Plays.*;
+package xst.thirteen.ai;
+import xst.thirteen.Hand;
+import xst.thirteen.game.Game;
+import static xst.thirteen.Plays.*;
 
 // the default AI for 13 game
 
