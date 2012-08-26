@@ -6,11 +6,11 @@ public interface GameAI {
 	// postcondition: returns the hand that player chooses to play
 	public Hand initialPlay(Game g);
 	
-	// precondition: gameState is in initiate round state, player has the 3S
+	// precondition: player won previous round
 	// postcondition: returns the hand that player chooses to play
 	public Hand initiateRound(Game g);
 
-	// precondition: gameState is in continue round state, player has the 3S
+	// precondition: player's turn
 	// postcondition: returns the hand that player chooses to play
 	public Hand continueRound(Game g);
 }

@@ -89,5 +89,4 @@ public abstract class GameController {
 				cardsChosen[i] = NULLCARD;
 		}
 	}
-		
 }
