@@ -1,6 +1,6 @@
 package xst.thirteen.droid;
 
-import xst.thirteen.R;
+import xst.thirteen.droid.R;
 import android.app.Activity;
 import android.os.Bundle;
 
