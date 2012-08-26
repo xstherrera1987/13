@@ -2,8 +2,7 @@ package xst.android.game;
 import xst.android.GameController;
 import xst.android.Hand;
 import xst.android.GameAI;
-import xst.android.ai.AI_00;				// default AI class
-/* some comment */
+import xst.android.ai.AI_00;
 public class Game {
 	int roundState;
 	
@@ -22,7 +21,8 @@ public class Game {
 	
 	// precondition: none
 	// postcondition: creates game subsystem from previously started game
-	public Game(GameController gameplay, GameState gameState, GameLogic gameLogic) {
+	public Game(GameController gameplay, GameState gameState, 
+			GameLogic gameLogic) {
 		
 	}
 	
@@ -41,14 +41,15 @@ public class Game {
 		if (playerNumber != gameLogic.turn)
 			throw new Exception("not this player's turn");
 		
-		int[] cards = hand.cards();
-		boolean valid = gameState.playMatchesHand(hand.cards(), playerNumber);
+		int[] cards = hand.int13Type();
+		boolean valid = gameState.playMatchesHand(hand.int13Type(), playerNumber);
 		if (!valid) throw new Exception("play not in hand");
 		
 		boolean stronger = gameLogic.defeatsCurrent( cards );
 		if ( !stronger )
 			throw new Exception("play not stronger");
 		
-		return roundState = gameLogic.makePlay( cards , hand.num(), hand.playType() );
+		return roundState = gameLogic.makePlay( cards , hand.cards.length, 
+				hand.playType );
 	}
 }
