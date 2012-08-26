@@ -1,5 +1,9 @@
-13 - A standard 52-card deck card game on Android
-this is a complete rewrite of https://github.com/xstherrera1987/13
+13 - Android client for multiplatform, multiplayer card game
+13 is a standard 52-card deck card game. For an introduction and rules please see:
+http://en.wikipedia.org/wiki/Tien_len
+
+this is a complete rewrite of https://bitbucket.org/xstherrera1987/13-from-cecs343
+which was an Android only single player game, also GPLv3.
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -12,4 +16,4 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 GNU General Public License for more details.
 
 You should have received a copy of the GNU General Public License
-along with this program.  If not, see <http://www.gnu.org/licenses/>.
+along with this program.  If not, see <http://www.gnu.org/licenses/>
