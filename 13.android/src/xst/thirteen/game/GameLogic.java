@@ -3,10 +3,9 @@ import static xst.thirteen.ControlCodes.*;
 import static xst.thirteen.Plays.*;
 
 // game rules and gameplay management
-
 public class GameLogic {
 	private GameState gameState;						// the associated GameState
-	public int[] current = new int[13];					// stores current hand played; for printing to the table, etc...
+	public int[] current = new int[13];				// stores current hand played; for printing to the table, etc...
 	int playType;										// current play type for this round (singles,doubles,trips, etc..)
 	int turn;											// player number of whose turn it is
 	int lastPlay;										// player who last played a hand (didn't skip)
@@ -59,7 +58,7 @@ public class GameLogic {
 	
 	// precondition: cards is valid and stronger play
 	// postcondition: 
-	public int makePlay(int[] cards, int num, int playType) {
+	public int makePlay(int[] cards, int num, int type) {
 		// update game state
 		gameState.makePlay(cards, turn);
 		int roundState = determineRoundState();
@@ -88,7 +87,7 @@ public class GameLogic {
 			// update logic fields
 			lastPlay = turn;
 			skipTurn[turn] = false;
-			playType = playType;
+			playType = type;
 			// wtf ? System.arraycopy(play, 0, current, 0, 13);
 			//gameState.calculateHand(turn);
 			

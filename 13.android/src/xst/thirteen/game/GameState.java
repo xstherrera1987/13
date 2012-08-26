@@ -5,7 +5,7 @@ import java.util.Random;
 
 public class GameState {
 	// game state and hands data
-	final byte[] state;					// the state of each of the 52 cards
+	final byte[] state;				// the state of each of the 52 cards
 	final byte[][] hands;				// this data structure should be synchronized with state[]
 	final byte[] lastCard;		 		// index of last card in each player's hand
 	Random r;
