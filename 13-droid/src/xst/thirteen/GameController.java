@@ -1,36 +1,26 @@
 package xst.thirteen;
-import xst.thirteen.game.Game;
 import static xst.thirteen.ControlCodes.*;
 
-public abstract class GameController {
-	Game game;
-	private int[] cardsChosen = new int[13];
-	private int[] temp = new int[13];
-	private int playerNumber = -1;
+public class GameController {
+	// TODO have reference back to the controlling activity
+	public GameSystem sys;
+	public int[] cardsChosen = new int[13];
+	public int[] temp = new int[13];
+	public Hand current = null;
 	
-	public GameController(Game game) {
-		this.game = game;
-		playerNumber = 0;
-	}
-	
-	public GameController(Game game, int playerNumber) {
-		this(game);
-		this.playerNumber = playerNumber;
-	}
-	
-	// precondition: this is called by the platform (main) code to start the game
+	// precondition: this is called by the platform (main) code to start the 
+	// 	game
 	// postcondition: begin initialization
-	public abstract void startGame();
-	
-	// precondition: none
-	// postcondition: the game has changed state to "roundState"
-	public abstract void newState(int roundState);
+	public void startGame() {
+		
+	}
 	
 	// precondition: hand is owned by current player
-	// postcondition: makes this play (hand) on the game and returns RoundState
+	// postcondition: makes this play (hand) on the game and returns 
+	// 	RoundState
 	public int makePlay(Hand hand) {
 		try {
-		return game.makePlay(hand, playerNumber);
+			return sys.makePlay(current);
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 			// probably dump game state to file
@@ -51,6 +41,7 @@ public abstract class GameController {
 		
 	}
 	public boolean isChosenPlay() {
+		//TODO implement
 		return false;
 	}
 	

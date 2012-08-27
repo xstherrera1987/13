@@ -2,10 +2,13 @@ package xst.thirteen.game;
 import static xst.thirteen.ControlCodes.*;
 import static xst.thirteen.Plays.*;
 
+import java.io.Serializable;
+
 /**
  * GameLogic manages the state of turns, rounds, winning, and validation
  */
-public class GameLogic {
+@SuppressWarnings("serial")
+public class GameLogic implements Serializable {
 	GameState gameState;
 	// stores current hand played; for printing to the table, etc...
 	int[] current = new int[13];
@@ -20,10 +23,12 @@ public class GameLogic {
 	// marks human vs AI players
 	boolean[] humans = new boolean[4];
 	// marks if game is over
-	boolean gameWon;
+	boolean gameWon = false;
 	// marks if user wants to quit the game
-	boolean quitGame;
-	int gameWinner;
+	boolean quitGame = false;
+	int gameWinner = -1;
+	// counter that increments at each turn (even if no play is made)
+	int iteration = -1;
 	
 	// precondition: gameState is initialized
 	// postcondition: initializes logic for single player games
@@ -47,7 +52,8 @@ public class GameLogic {
 	}
 	
 	// precondition: none
-	// postcondition: reads state and returns roundState for player whose turn it is
+	// postcondition: reads state and returns roundState for player whose 
+	// 	turn it is
 	public int determineRoundState() {
 		if (playType == FIRST_PLAY) return FIRST_PLAY;
 		if (!gameWon) {
@@ -131,7 +137,8 @@ public class GameLogic {
 	}
 	
 	/*
-	// precondition: cards is sifted and sorted (powerful cards at front NULLCARD at end)
+	// precondition: cards is sifted and sorted (powerful cards at front 
+	// 	NULLCARD at end)
 	// postcondition: returns true if "cards" is a valid play of type "play"
 	public static boolean isCorrectPlay(int[] cards, int play) {
 		switch (play) {
@@ -156,8 +163,10 @@ public class GameLogic {
 	}
 	*/
 	
-	// precondition: cards is sifted and sorted (powerful cards at front, NULLCARD's at end)
-	// postcondition: returns the play found (or NOPLAY if these cards can't be played)
+	// precondition: cards is sifted and sorted (powerful cards at front, 
+	// 	NULLCARD's at end)
+	// postcondition: returns the play found (or NOPLAY if these cards can't 
+	// 	be played)
 	public static int isPlay(int[] cards) {
 		// possibly reorder or parallelize the tests for efficiency
 		int check2 = NOPLAY;
@@ -186,8 +195,10 @@ public class GameLogic {
 		return NOPLAY;
 	}
 	
-	// precondition: cards is sifted and sorted (powerful cards at front, NULLCARD's at end)
-	// postcondition: checks for TWO, TWO_2, TWO_3, TWO_4. returns NOPLAY if it is none of these
+	// precondition: cards is sifted and sorted (powerful cards at front, 
+	// 	NULLCARD's at end)
+	// postcondition: checks for TWO, TWO_2, TWO_3, TWO_4. returns NOPLAY if 
+	// 	it is none of these
 	public static int twoCheck(int[] cards) {
 		int numTwos = 0;
 		for (int i=0; cards[i] < 4 && cards[i] >= 0; i++) {
@@ -204,8 +215,10 @@ public class GameLogic {
 		}
 	}
 
-	// precondition: cards is sifted and sorted (powerful cards at front, NULLCARD's at end)
-	// postcondition: checks for QUAD, QUAD_2, QUAD_3. returns NOPLAY if it is none of these
+	// precondition: cards is sifted and sorted (powerful cards at front, 
+	// 	NULLCARD's at end)
+	// postcondition: checks for QUAD, QUAD_2, QUAD_3. returns NOPLAY if it 
+	// 	is none of these
 	public static int quadCheck(int[] cards) {
 		// keep track of rank of each quad (aka bomb)
 		int[] ranks = new int[3];
@@ -230,7 +243,8 @@ public class GameLogic {
 	}
 	
 	// precondition: cards is sifted and sorted
-	// postcondition: returns true if "cards" is a valid play and it includes the lowest card
+	// postcondition: returns true if "cards" is a valid play and it includes
+	// 	the lowest card
 	public static boolean isInitialPlay(int[] cards) {		
 		boolean contains51 = false;
 		for (int i=0; i<13; i++) {

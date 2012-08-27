@@ -1,46 +1,30 @@
 package xst.thirteen.game;
-import xst.thirteen.GameController;
+import xst.thirteen.GameSystem;
 import xst.thirteen.Hand;
-import xst.thirteen.ai.AI_00;
 import xst.thirteen.ai.GameAI;
 /**
  * Game manages the flow of the game between players, and is the interface
  * which clients use to interact with the game
  */
 public class Game {
-	int roundState;
+	public int roundState;
 	
-	GameController gameplay;
-	GameAI gameAI;
+	public final GameSystem sys;
 	GameState gameState;
 	GameLogic gameLogic;
+	GameAI[] gameAI;
 	
 	// precondition: none
 	// postcondition: creates game subsystem for new game
-	public Game(GameController gameplay) {
-		this.gameplay = gameplay;
+	public Game(GameSystem sys) {
+		this.sys = sys;
 		gameState = new GameState();
-		gameLogic = new GameLogic(gameState);
+		gameLogic = new GameLogic();
 	}
-	
-	// precondition: none
-	// postcondition: creates game subsystem from previously started game
-	public Game(GameController gameplay, GameState gameState, 
-			GameLogic gameLogic) {
 		
-	}
-	
-	// precondition: none
-	// postcondition: use ai for this play
-	public void setAI(GameAI ai) {
-		if (ai != null)
-			this.gameAI = ai;
-		else
-			ai = new AI_00();
-	}
-	
 	// precondition: none
 	// postcondition: makes the play and returns roundState
+	// TODO use control codes instead of throwing exceptions
 	public int makePlay(Hand hand, int playerNumber) throws Exception {
 		if (playerNumber != gameLogic.turn)
 			throw new Exception("not this player's turn");
@@ -57,4 +41,8 @@ public class Game {
 		return roundState = gameLogic.makePlay( cards , hand.cards.length, 
 				hand.playType );
 	}
+
+	// TODO need a callback to the gamecontroller when it is this player's 
+	// 	turn again
+	
 }

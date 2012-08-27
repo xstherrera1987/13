@@ -15,13 +15,16 @@ public class GameState implements Serializable {
 	final byte[][] hands;
 	// index of last card in each player's hand
 	final byte[] lastCard;
-	final Random r;
+	// PRNG
+	transient static final Random r;
+	static {
+		r = new Random();
+	}
 	
 	public GameState() {
 		state = new byte[52];
 		hands = new byte[4][13];
 		lastCard = new byte[4];
-		r = new Random();
 	}
 	
 	// precondition: none
