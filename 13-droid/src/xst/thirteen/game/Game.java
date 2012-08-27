@@ -19,7 +19,7 @@ public class Game {
 	public Game(GameSystem sys) {
 		this.sys = sys;
 		gameState = new GameState();
-		gameLogic = new GameLogic();
+		gameLogic = new GameLogic(gameState);
 	}
 		
 	// precondition: none
@@ -33,10 +33,6 @@ public class Game {
 		boolean valid = gameState.playMatchesHand(hand.int13Type(), 
 				playerNumber);
 		if (!valid) throw new Exception("play not in hand");
-		
-		boolean stronger = gameLogic.defeatsCurrent( cards );
-		if ( !stronger )
-			throw new Exception("play not stronger");
 		
 		return roundState = gameLogic.makePlay( cards , hand.cards.length, 
 				hand.playType );

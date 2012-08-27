@@ -75,7 +75,10 @@ public class GameLogic implements Serializable {
 	// precondition: cards is valid and stronger play
 	// postcondition:
 	// TODO empty switch/case statement
+	// verify that cards defeats current play here
 	public int makePlay(int[] cards, int num, int type) {
+		if (!defeatsCurrent(cards)) return ERROR_NOTSTRONGER;
+		
 		// update game state
 		gameState.makePlay(cards, turn);
 		int roundState = determineRoundState();

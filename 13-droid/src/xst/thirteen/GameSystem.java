@@ -4,6 +4,7 @@ import xst.thirteen.game.Game;
 
 /**
  * GameSystem manages the connection to a game, be it locally or remotely
+ * this is the primary interface for the GameController
  */
 public class GameSystem {
 	public final GameController controller;

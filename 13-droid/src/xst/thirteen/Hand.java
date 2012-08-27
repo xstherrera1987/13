@@ -1,7 +1,9 @@
 package xst.thirteen;
 import xst.thirteen.game.GameLogic;
 // each of 13 elements is a card represented by its integer value
-// in simple hierarchical order 0 is "2H" where 51 is "3S"
+/**
+ * 
+ */
 public class Hand {
 	public final int[] cards;
 	public final int playType;
@@ -10,7 +12,7 @@ public class Hand {
 		if ( cards.length > 13) 
 			throw new IllegalArgumentException("hand cannot be constructed" +
 					" with more than 13 cards");
-		for (int i=0; i<52; i++) 
+		for (int i=0; i<cards.length; i++) 
 			if (cards[i] < 0 || cards[i] > 51)
 				throw new IllegalArgumentException("invalid card");
 		
