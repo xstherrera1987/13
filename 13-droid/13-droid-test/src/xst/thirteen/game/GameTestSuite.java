@@ -14,5 +14,4 @@ public class GameTestSuite extends TestCase {
 		//$JUnit-END$
 		return suite;
 	}
-
 }

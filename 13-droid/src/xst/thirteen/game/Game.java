@@ -3,6 +3,10 @@ import xst.thirteen.GameController;
 import xst.thirteen.Hand;
 import xst.thirteen.ai.AI_00;
 import xst.thirteen.ai.GameAI;
+/**
+ * Game manages the flow of the game between players, and is the interface
+ * which clients use to interact with the game
+ */
 public class Game {
 	int roundState;
 	
@@ -42,7 +46,8 @@ public class Game {
 			throw new Exception("not this player's turn");
 		
 		int[] cards = hand.int13Type();
-		boolean valid = gameState.playMatchesHand(hand.int13Type(), playerNumber);
+		boolean valid = gameState.playMatchesHand(hand.int13Type(), 
+				playerNumber);
 		if (!valid) throw new Exception("play not in hand");
 		
 		boolean stronger = gameLogic.defeatsCurrent( cards );

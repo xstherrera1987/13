@@ -1,16 +1,21 @@
 package xst.thirteen.game;
 import static xst.thirteen.ControlCodes.*;
 
+import java.io.Serializable;
 import java.util.Random;
 
-public class GameState {
+/**
+ * GameState manages the state of the cards
+ */
+@SuppressWarnings("serial")
+public class GameState implements Serializable {
 	// the state of each of the 52 cards
 	final byte[] state;
 	// this data structure should be synchronized with state[]
 	final byte[][] hands;
 	// index of last card in each player's hand
 	final byte[] lastCard;
-	Random r;
+	final Random r;
 	
 	public GameState() {
 		state = new byte[52];
@@ -20,7 +25,7 @@ public class GameState {
 	}
 	
 	// precondition: none
-	// postcondition: reads state[] and fills hands[], updates lastCard[]
+	// postcondition: read state[] and fills hands[], update lastCard[]
 	public void calculateHand(int player) {
 		// update hands[] from state[]
 		byte count=0;
@@ -38,7 +43,7 @@ public class GameState {
 	}
 	
 	// precondition: none
-	// postcondition: returns true if all cards have been shed by player
+	// postcondition: return true if all cards have been shed by player
 	public boolean checkWin(int player) {
 		boolean win = true;
 		for (int i=0; i<52 && win; i++) 
@@ -47,7 +52,7 @@ public class GameState {
 	}
 	
 	// precondition: the play has been verified as defeating the current play
-	// postcondition: updates state[], hands[] for making this play
+	// postcondition: update state[], hands[] for making this play
 	public void makePlay(int[] cards, int playerNumber) {
 		// all marked as current are now marked as old
 		for (int i=0; i<52; i++) {
@@ -55,7 +60,8 @@ public class GameState {
 				state[i] = OLD;
 		}
 		
-		// each card copied to hands[][] (including NULLCARD), valid cards update state[]
+		// each card copied to hands[][] (including NULLCARD), valid cards 
+		// update state[]
 		byte card;
 		for (int i=0; i < 13; i++) {
 			card = (byte) cards[i];
@@ -66,19 +72,20 @@ public class GameState {
 	}
 	
 	// precondition: none
-	// postcondition: checks all cards in hand for ownership by player
+	// postcondition: check all cards in hand for ownership by this player
 	public boolean playMatchesHand(int[] cards, int player) {
-		int card;
 		boolean valid = true;
 		for (int i=0; i<13 && valid; i++) {
-			card = cards[i];
-			if (state [ card ] != player) valid = false;
+			if (state [ cards[i] ] != player) {
+				valid = false;
+				break;
+			}
 		}
 		return valid;
 	}
 
 	// precondition: none
-	// postcondition: fills state[] with values (eg. deals cards randomly)
+	// postcondition: fill state[] with values (eg. deals cards randomly)
 	//		NOTE: Fisher–Yates shuffle, inside-out version
 	public void deal() {
 		int j;

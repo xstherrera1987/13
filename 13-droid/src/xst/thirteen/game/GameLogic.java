@@ -2,18 +2,28 @@ package xst.thirteen.game;
 import static xst.thirteen.ControlCodes.*;
 import static xst.thirteen.Plays.*;
 
-// game rules and gameplay management
+/**
+ * GameLogic manages the state of turns, rounds, winning, and validation
+ */
 public class GameLogic {
-	private GameState gameState;						// the associated GameState
-	public int[] current = new int[13];				// stores current hand played; for printing to the table, etc...
-	int playType;										// current play type for this round (singles,doubles,trips, etc..)
-	int turn;											// player number of whose turn it is
-	int lastPlay;										// player who last played a hand (didn't skip)
-	boolean[] skipTurn = new boolean[4];				// keeps track of who has skipped this round
-	boolean[] humans = new boolean[4];					// marks human vs AI players
-	boolean gameWon;									// marks if game is over
-	boolean quitGame;									// marks if user wants to quit the game
-	int gameWinner;										// marks the winner of the game
+	GameState gameState;
+	// stores current hand played; for printing to the table, etc...
+	int[] current = new int[13];
+	// current play type for this round (singles,doubles,trips, etc..)
+	int playType;
+	// player number of whose turn it is
+	int turn;
+	// player who last played a hand (didn't skip)
+	int lastPlay;
+	// keeps track of who has skipped this round
+	boolean[] skipTurn = new boolean[4];
+	// marks human vs AI players
+	boolean[] humans = new boolean[4];
+	// marks if game is over
+	boolean gameWon;
+	// marks if user wants to quit the game
+	boolean quitGame;
+	int gameWinner;
 	
 	// precondition: gameState is initialized
 	// postcondition: initializes logic for single player games
@@ -57,7 +67,8 @@ public class GameLogic {
 	}
 	
 	// precondition: cards is valid and stronger play
-	// postcondition: 
+	// postcondition:
+	// TODO empty switch/case statement
 	public int makePlay(int[] cards, int num, int type) {
 		// update game state
 		gameState.makePlay(cards, turn);
