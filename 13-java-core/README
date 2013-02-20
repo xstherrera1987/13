@@ -1,0 +1,5 @@
+TODO: refactor code from previous application iteration and from current 
+rewrite into core and UI modules, etc...
+
+This directory will contain the Java core implementation for use in
+Android, and in the Servlet (GoogleAppEngine doesn't allow JNI)

@@ -1,0 +1,5 @@
+TODO: refactor code from previous application iteration and from current 
+rewrite into core and UI modules, etc...
+
+This directory will contain the C++ core implementation for use in iOS
+and maybe elsewhere later.
