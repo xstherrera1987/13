@@ -12,11 +12,11 @@ At the moment, it is a work-in-progress that will probably see several major rev
 contains the main game functionality.  Players, Game Rules, Gameplay, and AI
 are implemented in this project.
 
-###Cli Net
+###RMI Net
 the first iteration will be a command line network game and the player lobby and gameplay setup and will be implemented in this project.
 
 ###Services
-the second iteration will refactor the Cli Net project into generic Web Services which will be accessible to web, android, and cli clients.
+the second iteration will refactor the RMI Net project into generic Web Services which will be accessible to web, android, and cli clients.
 
 ###Web
 the web interface will be implemented using a client-side MVC JS framework. It will be implemented using Backbone.js, or alternatively with Angular.js

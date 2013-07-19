@@ -1,10 +1,10 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>net.joeherrera.Thirteen</groupId>
-	<artifactId>cli-net</artifactId>
+	<groupId>net.joeherrera.Thirteen.rminet</groupId>
+	<artifactId>server</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>13 Cli Network</name>
+	<name>13 RMI Network Server</name>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
@@ -23,7 +23,7 @@
 	</build>
 
 	<dependencies>
-<dependency>
+		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
 			<version>4.10</version>
@@ -35,7 +35,12 @@
 			<version>1.9.0</version>
 			<scope>test</scope>
 		</dependency>
-
+		<dependency>
+			<groupId>net.joeherrera.Thirteen</groupId>
+			<artifactId>core</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+			<scope>compile</scope>
+		</dependency>
 	</dependencies>
 </project>
 
