@@ -1,4 +1,4 @@
-package net.joeherrera.Thirteen.core;
+package net.joeherrera.Thirteen.gameplay;
 
 import java.net.InetAddress;
 

@@ -1,5 +1,7 @@
 package net.joeherrera.Thirteen.core;
 
+import net.joeherrera.Thirteen.gameplay.Player;
+
 public class GameCore {
 	// the full deck of cards
 	Card[] deck;

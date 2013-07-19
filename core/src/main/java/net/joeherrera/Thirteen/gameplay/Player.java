@@ -1,4 +1,7 @@
-package net.joeherrera.Thirteen.core;
+package net.joeherrera.Thirteen.gameplay;
+
+import net.joeherrera.Thirteen.core.Ai;
+import net.joeherrera.Thirteen.core.Hand;
 
 public class Player {
 	boolean isAi;
