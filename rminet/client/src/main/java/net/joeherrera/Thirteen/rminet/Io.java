@@ -7,6 +7,10 @@ import net.joeherrera.Thirteen.core.*;
 import static net.joeherrera.Thirteen.core.Rank.*;
 import static net.joeherrera.Thirteen.core.Suit.*;
 
+/**
+ * Io abstracts interacting with the user's input and output devices. This class
+ * is used to read from the keyboard and write back to the terminal. 
+ */
 public class Io {
 	final BufferedReader rd;
 	final BufferedWriter wr;
@@ -43,8 +47,8 @@ public class Io {
 	}
 	
 	public int getInteger(String prompt, String errorPrompt, int lowerBound, 
-			int upperBound) throws IOException, Exception {
-		this.wr.write(prompt);
+			int upperBound) throws IOException {
+		this.print(prompt);
 		
 		String input = null;
 		int retVal = 0;
@@ -57,16 +61,16 @@ public class Io {
 				if (lowerBound < retVal && retVal < upperBound)
 					return retVal;
 				
-				this.wr.write("Out of range: " + lowerBound + " < x < " + upperBound);				
+				this.print("Out of range: " + lowerBound + " < x < " + upperBound);				
 			} catch (NumberFormatException e) {
-				this.wr.write(errorPrompt); 
+				this.print(errorPrompt); 
 			}
 		}
 	}
 	
 	public String getString(String prompt, Pattern pattern, String errorPrompt) 
 			throws IOException {
-		this.wr.write(prompt);
+		this.print(prompt);
 		
 		String input = null;
 		Matcher matcher;
@@ -78,7 +82,7 @@ public class Io {
 			if ( matcher.find() )
 				return matcher.group();
 				
-			this.wr.write(errorPrompt);
+			this.print(errorPrompt);
 		}
 	}
 	
@@ -94,7 +98,7 @@ public class Io {
 		final Pattern cardPattern = Pattern.compile(rankRegex+suitRegex);
 		String input = null;
 		
-		this.wr.write(prompt);
+		this.print(prompt);
 		
 		Matcher cardMatcher, suitMatcher, rankMatcher;
 		Card[] cards = new Card[13];
@@ -114,14 +118,14 @@ public class Io {
 					suit = getSuit( suitMatcher.group() );
 					cards[index++] = Card.getCard(rank, suit);
 				} else {
-					this.wr.write("Card input error: " + cardMatcher.group() + "\n");
+					this.println("Card input error: " + cardMatcher.group());
 				}
 			}
 			
 			if (index > 1)
 				return cards;
-			else
-				this.wr.write("Error: No cards read.\n");
+			
+			this.println("Error: No cards read.");
 		}
 	}
 	

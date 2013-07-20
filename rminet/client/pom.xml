@@ -19,6 +19,14 @@
 					<target>1.7</target>
 				</configuration>
 			</plugin>
+
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>exec-maven-plugin</artifactId>
+				<configuration>
+					<mainClass>net.joeherrera.Thirteen.rminet.Main</mainClass>
+				</configuration>
+			</plugin>
 		</plugins>
 	</build>
 
@@ -35,7 +43,7 @@
 			<version>1.9.0</version>
 			<scope>test</scope>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>net.joeherrera.Thirteen</groupId>
 			<artifactId>core</artifactId>
@@ -45,7 +53,7 @@
 			<groupId>net.joeherrera.Thirteen.rminet</groupId>
 			<artifactId>server</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
-		</dependency>            
+		</dependency>
 	</dependencies>
 </project>
 
