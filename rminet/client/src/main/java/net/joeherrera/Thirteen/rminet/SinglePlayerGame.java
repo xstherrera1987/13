@@ -1,6 +1,6 @@
 package net.joeherrera.Thirteen.rminet;
-import net.joeherrera.Thirteen.rminet.GameRmi;
+import net.joeherrera.Thirteen.gameplay.Game;
 
-public class SinglePlayerGame implements GameRmi {
+public class SinglePlayerGame implements Game {
 
 }

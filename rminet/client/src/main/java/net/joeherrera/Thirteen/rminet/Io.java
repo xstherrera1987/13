@@ -7,19 +7,19 @@ import net.joeherrera.Thirteen.core.*;
 import static net.joeherrera.Thirteen.core.Rank.*;
 import static net.joeherrera.Thirteen.core.Suit.*;
 
-public class KeyboardReader {
+public class Io {
 	final BufferedReader rd;
 	final BufferedWriter wr;
 
-	public KeyboardReader() {
+	public Io() {
 		this.rd = new BufferedReader(new InputStreamReader(System.in));
 		this.wr = new BufferedWriter(new PrintWriter(System.out));
 	}
-	public KeyboardReader(InputStream is, OutputStream os) {
+	public Io(InputStream is, OutputStream os) {
 		this.rd = new BufferedReader(new InputStreamReader(is));
 		this.wr = new BufferedWriter(new OutputStreamWriter(os));
 	}
-	public KeyboardReader(BufferedReader rd, BufferedWriter wr) {
+	public Io(BufferedReader rd, BufferedWriter wr) {
 		this.rd = rd;
 		this.wr = wr;
 	}
@@ -27,6 +27,19 @@ public class KeyboardReader {
 	public void newLine() throws IOException {
 		this.wr.write("\n");
 		this.wr.flush();
+	}
+	public void print(String str) {
+		try {
+			this.wr.write(str);
+			this.wr.flush();
+		} catch (IOException e) { }
+	}
+	public void println(String str) {
+		try {
+			this.wr.write(str);
+			this.wr.write("\n");
+			this.wr.flush();
+		} catch (IOException e) { }
 	}
 	
 	public int getInteger(String prompt, String errorPrompt, int lowerBound, 
