@@ -60,4 +60,22 @@ public enum Card {
 	@Override public String toString() {
 		return this.rank.name + this.suit.name;
 	}
+	
+	public static String cardArrayToString(Card[] cards) {
+		StringBuffer sb = new StringBuffer();
+		sb.append('[');
+		
+		Card c;
+		boolean lastIteration = false;
+		for (int i=0; !lastIteration; i++) {
+			lastIteration = (i == cards.length - 1 || NULL_CARD == cards[i]);
+			c = cards[i];
+			sb.append(c.toString());
+			if ( !lastIteration )
+				sb.append(", ");
+		}
+		sb.append(']');
+		
+		return sb.toString();
+	}
 }
