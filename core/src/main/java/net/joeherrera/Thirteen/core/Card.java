@@ -32,7 +32,7 @@ public enum Card {
 	Card(final Rank r, final Suit s) {
 		this.rank = r;
 		this.suit = s;
-		this.val = (s.val * 13) + r.val;
+		this.val = (r.val * 13) + s.val;
 	}
 	
 	final Rank rank;
@@ -68,7 +68,7 @@ public enum Card {
 		Card c;
 		boolean lastIteration = false;
 		for (int i=0; !lastIteration; i++) {
-			lastIteration = (i == cards.length - 1 || NULL_CARD == cards[i]);
+			lastIteration = (i == cards.length - 1);
 			c = cards[i];
 			sb.append(c.toString());
 			if ( !lastIteration )

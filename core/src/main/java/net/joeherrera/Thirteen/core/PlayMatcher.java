@@ -1,28 +1,23 @@
 package net.joeherrera.Thirteen.core;
 
-import static net.joeherrera.Thirteen.core.Play.NO_PLAYS;
-
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * matches Card[] to a Play if possible or else NO_PLAY
- * 
  */
 public class PlayMatcher {
 	/**
-	 * determine which play (if any) this hand makes
+	 * determine which play (if any) this hand or any subset of cards 
+	 * of this hand can make.
 	 * 
-	 * @param hand the hand to test
-	 * @return the plays that are possible
+	 * @param cards the hand to test
+	 * @return the plays that are possible or empty list if none
 	 */
-	public static List<Play> determinePlays(final Hand hand) {
+	public static List<Play> determinePlays(final Card[] cards) {
 		final List<Play> retVal = new ArrayList<>();
-
 		// TODO implement
 		
-		// if plays can be made then return list with one value: NO_PLAY
-		retVal.add(NO_PLAYS);
 		return retVal;
 	}
 }

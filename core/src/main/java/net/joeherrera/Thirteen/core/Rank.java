@@ -6,7 +6,9 @@ package net.joeherrera.Thirteen.core;
 public enum Rank {
 	THREE("3", 12), FOUR("4", 11), FIVE("5", 10), SIX("6", 9), SEVEN("7", 8), 
 	EIGHT("8", 7), NINE("9", 6), TEN("10", 6), JACK("J", 4), QUEEN("Q", 3), 
-	KING("K", 2), ACE("A", 1), TWO("2", 0), NULL_RANK("�", -1);
+	KING("K", 2), ACE("A", 1), TWO("2", 0), 
+	// high value so null cards bubble towards the end during sorting
+	NULL_RANK("�", 100);
 
 	final String name;
 	final int val;
