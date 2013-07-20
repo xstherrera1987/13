@@ -3,9 +3,10 @@ import static net.joeherrera.Thirteen.core.Rank.*;
 import static net.joeherrera.Thirteen.core.Suit.*;
 
 /**
- * Card is identified by a Rank and Suit
+ * Card is identified by a Rank and Suit. This implementation does not support
+ * multiple decks.
  */
-public enum Card {
+public enum Card {	
 	// null card is used as placeholder
 	NULL_CARD(Rank.NULL_RANK, Suit.NULL_SUIT),
 	// hearts
@@ -29,15 +30,16 @@ public enum Card {
 	_7S(SEVEN , SPADES), _6S(SIX , SPADES), _5S(FIVE , SPADES), _4S(FOUR , SPADES),
 	_3S(THREE , SPADES);
 	
-	Card(final Rank r, final Suit s) {
-		this.rank = r;
-		this.suit = s;
-		this.val = (r.val * 13) + s.val;
-	}
+	public static final Card[] DECK = getDeck();
 	
 	final Rank rank;
 	final Suit suit;
 	final int val;
+	Card(final Rank r, final Suit s) {
+		this.rank = r;
+		this.suit = s;
+		this.val = cardVal(r, s);
+	}
 
 	/**
 	 * build and return a new deck
@@ -56,8 +58,17 @@ public enum Card {
 		}
 		return deck;
 	}
+	
+	public static int cardVal(Rank r, Suit s) {
+		return (r.val * 13) + s.val;
+	}
+	 
+	public static Card getCard(Rank rank, Suit suit) {
+		return DECK[ cardVal(rank,suit) ];
+	}
 
-	@Override public String toString() {
+	@Override 
+	public String toString() {
 		return this.rank.name + this.suit.name;
 	}
 	

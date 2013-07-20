@@ -7,3 +7,5 @@
 
 ### Low Priority
 + use real usernames as a basis for AI fake names
++ use EnumSet instead of Card[]
++ + required for Android
