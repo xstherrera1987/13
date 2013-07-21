@@ -14,9 +14,11 @@ public class InteractiveTest {
 
 		switch (args[0]) {
 		case "integerInput":
-			IoInteractiveTest.testGetInteger();
+			IoInteractiveTest.getInteger();
 		case "stringInput":
-			IoInteractiveTest.testGetString();
+			IoInteractiveTest.getString();
+		case "cardInput":
+			IoInteractiveTest.getCard();
 			break;
 		default:
 			printUsage();
@@ -30,5 +32,6 @@ public class InteractiveTest {
 		System.out.println("tests names:");
 		System.out.println("  integerInput");
 		System.out.println("  stringInput");
+		System.out.println("  cardInput");
 	}
 }

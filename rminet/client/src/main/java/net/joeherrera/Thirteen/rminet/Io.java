@@ -88,14 +88,12 @@ public class Io {
 	//		or -1 if user wants to cancel selection
 	public Card[] getCards() throws IOException {
 		final String prompt = "Select Cards: ";
-		final String rankRegex = "([2-9]|10|J|Q|K|A)";
-		final String suitRegex = "(H|S|D|C|♥|♦|♣|♠)";
+		final String rankRegex = "([2-9]|10|J|Q|K|A|j|q|k|a)";
+		final String suitRegex = "(h|s|d|c|H|S|D|C|♥|♦|♣|♠)";
 		final Pattern rankPattern = Pattern.compile(rankRegex);
 		final Pattern suitPattern = Pattern.compile(suitRegex);
-		final Pattern cardPattern = Pattern.compile(rankRegex+suitRegex);
+		final Pattern cardPattern = Pattern.compile("("+rankRegex+suitRegex+")|("+suitRegex+rankRegex+")");
 		String input = null;
-		
-		this.print(prompt);
 		
 		Matcher cardMatcher, suitMatcher, rankMatcher;
 		Card[] cards = new Card[13];
@@ -103,6 +101,7 @@ public class Io {
 		Suit suit;
 		int index = 0;
 		while (true) {
+			this.print(prompt);
 			input = this.rd.readLine();
 
 			cardMatcher = cardPattern.matcher(input);
@@ -113,6 +112,8 @@ public class Io {
 				if (rankMatcher.find() && suitMatcher.find() ) {
 					rank = getRank( rankMatcher.group() );
 					suit = getSuit( suitMatcher.group() );
+					System.out.println("Rank: "+ rank);
+					System.out.println("Suit: "+ suit);
 					cards[index++] = Card.getCard(rank, suit);
 				} else {
 					this.println("Card input error: " + cardMatcher.group());
@@ -147,10 +148,10 @@ public class Io {
 	public static Rank getRank(String rank) {
 		switch(rank) {
 		case "2": return TWO;
-		case "A": return ACE;
-		case "K": return KING;
-		case "Q": return QUEEN;
-		case "J": return JACK;
+		case "A": case "a": return ACE;
+		case "K": case "k": return KING;
+		case "Q": case "q": return QUEEN;
+		case "J": case "j": return JACK;
 		case "10": return TEN;
 		case "9": return NINE;
 		case "8": return EIGHT;

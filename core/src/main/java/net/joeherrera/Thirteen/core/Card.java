@@ -60,7 +60,7 @@ public enum Card {
 	}
 	
 	public static int cardVal(Rank r, Suit s) {
-		return (r.val * 13) + s.val;
+		return (r.val * 4) + s.val;
 	}
 	 
 	public static Card getCard(Rank rank, Suit suit) {

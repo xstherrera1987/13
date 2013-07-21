@@ -14,4 +14,9 @@ public enum Suit {
 		this.name = name;
 		this.val = val;
 	}
+	
+	@Override
+	public String toString() {
+		return "" + this.name;
+	}
 }
