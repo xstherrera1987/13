@@ -22,8 +22,6 @@ public class HandTest {
 		Hand h = new Hand(HAND_UNSORTED);
 		h.siftAndSort();
 		
-		System.out.println("expected: " + HAND_SIFTED_AND_SORTED);
-		System.out.println("h: " + h);
 		assertEquals(HAND_SIFTED_AND_SORTED, h);
 	}
 	

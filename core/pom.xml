@@ -11,14 +11,14 @@
 
 	<build>
 		<plugins>
-			<plugin>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.1</version>
-				<configuration>
-					<source>1.7</source>
-					<target>1.7</target>
-				</configuration>
-			</plugin>
+				<plugin>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<version>3.1</version>
+					<configuration>
+						<source>1.7</source>
+						<target>1.7</target>
+					</configuration>
+				</plugin>
 		</plugins>
 	</build>
 
@@ -35,6 +35,5 @@
 			<version>1.9.0</version>
 			<scope>test</scope>
 		</dependency>
-
 	</dependencies>
 </project>
