@@ -4,6 +4,7 @@
 ### Medium Priority
 + *[core]* consider using higher values for greater strength in class Card
 + + will require refactoring Card enums as well as getDeck()
++ create a test project for droid project
 
 ### Low Priority
 + *[core]* use real usernames as a basis for AI fake names
@@ -11,3 +12,5 @@
 + + required for Android
 + setup continuous integration server (Jenkins)
 + *[core]* replace disconnected human players with AIs
++ *[droid]* (re)implement droid client
+

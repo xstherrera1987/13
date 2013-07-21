@@ -43,16 +43,11 @@
 			<version>1.9.0</version>
 			<scope>test</scope>
 		</dependency>
-
 		<dependency>
 			<groupId>net.joeherrera.Thirteen</groupId>
 			<artifactId>core</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
-		</dependency>
-		<dependency>
-			<groupId>net.joeherrera.Thirteen.rminet</groupId>
-			<artifactId>server</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
+			<scope>compile</scope>
 		</dependency>
 	</dependencies>
 </project>
