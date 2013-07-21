@@ -1,27 +1,29 @@
 package net.joeherrera.Thirteen.rminet;
 
-import java.io.ByteArrayOutputStream;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-
-import net.joeherrera.Thirteen.rminet.Io;
+import java.util.regex.Pattern;
 
 public class IoInteractiveTest {
-	InputStream is;
-	OutputStream os;
-	Io testIo;
+	static Io testIo = new Io();
 	
-	public IoInteractiveTest() {
-		os = new ByteArrayOutputStream();
-	}
-	
-	public void testGetInteger() {
-		testIo = new Io();
+	public static void testGetInteger() {
+		int lower = -9;
+		int upper = 5;
 		
 		int result = 0;
 		try {
-			result = testIo.getInteger("Enter Integer (1<x<5): ", "retry integer: ", 1, 5);		
+			result = testIo.getInteger("Enter Integer ("+lower+"<x<"+upper+"): ", 
+					lower, upper);
+		} catch(IOException e) { }
+		
+		System.out.println(result);
+	}
+	public static void testGetString() {
+		Pattern pattern = Pattern.compile("[A-Z]");
+		
+		String result = null;
+		try {
+			result = testIo.getString("Enter a capital letter: ", pattern, "Not a capital letter");
 		} catch(IOException e) { }
 		
 		System.out.println(result);

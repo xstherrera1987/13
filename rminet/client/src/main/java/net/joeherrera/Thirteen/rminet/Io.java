@@ -46,43 +46,40 @@ public class Io {
 		} catch (IOException e) { }
 	}
 	
-	public int getInteger(String prompt, String errorPrompt, int lowerBound, 
-			int upperBound) throws IOException {
-		this.print(prompt);
+	public int getInteger(String prompt, int lowerBound, int upperBound) 
+			throws IOException {
 		
 		String input = null;
 		int retVal = 0;
 		while (true) {
+			this.print(prompt);
 			input = this.rd.readLine();
-			this.newLine();
 			
 			try {
 				retVal = Integer.parseInt(input);
 				if (lowerBound < retVal && retVal < upperBound)
 					return retVal;
 				
-				this.print("Out of range: " + lowerBound + " < x < " + upperBound);				
+				this.println("Out of range: " + lowerBound + " < x < " + upperBound);
 			} catch (NumberFormatException e) {
-				this.print(errorPrompt); 
+				this.println("Error: input is not a number."); 
 			}
 		}
 	}
 	
 	public String getString(String prompt, Pattern pattern, String errorPrompt) 
 			throws IOException {
-		this.print(prompt);
-		
 		String input = null;
 		Matcher matcher;
 		while (true) {
+			this.print(prompt);
 			input = this.rd.readLine();
-			this.newLine();
 			
 			matcher = pattern.matcher(input);
 			if ( matcher.find() )
 				return matcher.group();
 				
-			this.print(errorPrompt);
+			this.println(errorPrompt);
 		}
 	}
 	

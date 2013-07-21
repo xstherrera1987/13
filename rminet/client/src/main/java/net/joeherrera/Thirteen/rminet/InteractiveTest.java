@@ -14,18 +14,21 @@ public class InteractiveTest {
 
 		switch (args[0]) {
 		case "integerInput":
-			integerInput();
+			IoInteractiveTest.testGetInteger();
+		case "stringInput":
+			IoInteractiveTest.testGetString();
+			break;
+		default:
+			printUsage();
 			break;
 		}
 	}
-
-	public static void integerInput() {
-		IoInteractiveTest ioTest = new IoInteractiveTest();
-		ioTest.testGetInteger();
-	}
-
+	
 	public static void printUsage() {
-		// TODO Auto-generated method stub
-
+		System.out.println("Usage:");
+		System.out.println("  program test testName");
+		System.out.println("tests names:");
+		System.out.println("  integerInput");
+		System.out.println("  stringInput");
 	}
 }
