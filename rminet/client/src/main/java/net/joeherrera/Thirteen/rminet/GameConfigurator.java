@@ -7,7 +7,7 @@ import java.util.regex.Pattern;
 
 import net.joeherrera.Thirteen.gameplay.Game;
 
-public class Client {
+public class GameConfigurator {
 	final Io io;
 	Game game;
 	
@@ -18,7 +18,7 @@ public class Client {
 		SINGLE_PLAYER, MULTIPLAYER, ERROR, QUITGAME
 	}
 	
-	public Client() {
+	public GameConfigurator() {
 		this.io = new Io(System.in, System.out);
 	}
 	

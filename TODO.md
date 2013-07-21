@@ -1,10 +1,11 @@
 ### High Priority
-+ refactor code from previous application iteration and from current rewrite into core and UI modules, etc...
++ *[rminet/client]*, *[core/gameplay]* implement single player game
++ *[rminet/client]* refactor GameConfigurator logic and i/o apart in order to reuse logic in droid and webapp
 
 ### Medium Priority
-+ *[core]* consider using higher values for greater strength in class Card
-+ + will require refactoring Card enums as well as getDeck()
-+ create a test project for droid project
++ *[core]* player authentication can be simply their IP address hashed against a magic string.
++ + investigate crypto/hash algorithm implementation common to android/web/java environments.
++ + + need not be fast because it will be calculated only once
 
 ### Low Priority
 + *[core]* use real usernames as a basis for AI fake names
@@ -13,4 +14,4 @@
 + setup continuous integration server (Jenkins)
 + *[core]* replace disconnected human players with AIs
 + *[droid]* (re)implement droid client
-
++ *[droid]* create a test project for droid project

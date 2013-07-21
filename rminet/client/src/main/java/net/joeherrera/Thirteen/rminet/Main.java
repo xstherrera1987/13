@@ -6,7 +6,6 @@ import java.io.IOException;
  *	Thirteen command-line client entry point. 
  */
 public class Main {		
-	static Client client;
 	public static void main(String[] args) {
 		if (args.length >= 2 && "test".equals(args[0])) {
 			if (null != args[1]) {
@@ -22,10 +21,10 @@ public class Main {
 	}
 	
 	public static void startApplication() {
-		Main.client = new Client();
+		final GameConfigurator configurator = new GameConfigurator();
 		try {
-			Main.client.introduction();
-			Main.client.mainMenu();
+			configurator.introduction();
+			configurator.mainMenu();
 		} catch(IOException e) { }
 	}
 }

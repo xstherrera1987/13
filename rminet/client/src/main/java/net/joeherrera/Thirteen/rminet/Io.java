@@ -127,6 +127,7 @@ public class Io {
 		}
 	}
 	
+	public static final String UNKNOWN_CARD = "[?]";
 	public static Suit getSuit(String suit) {
 		switch(suit) {
 		case "H":
