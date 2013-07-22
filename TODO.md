@@ -15,3 +15,5 @@
 + *[core]* replace disconnected human players with AIs
 + *[droid]* (re)implement droid client
 + *[droid]* create a test project for droid project
++ use JCE [BouncyCastle](http://www.bouncycastle.org/java.html) crypto algorithms to produce Token.
++ use SSL for communication.

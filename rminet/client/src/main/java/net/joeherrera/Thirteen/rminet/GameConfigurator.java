@@ -31,7 +31,8 @@ public class GameConfigurator {
 			GameType gameType = chooseGameType();
 			switch(gameType) {
 			case SINGLE_PLAYER:
-				startSinglePlayerGame();
+				this.game= new SinglePlayerGame();
+				this.game.start();
 				break;
 			case MULTIPLAYER:
 				return;
@@ -48,16 +49,12 @@ public class GameConfigurator {
 		switch(gameType) {
 		case "1":
 			return GameType.SINGLE_PLAYER;
-		case "M":
+		case "M": case "m":
 			return GameType.MULTIPLAYER;
-		case "Q":
+		case "Q": case "q":
 			return GameType.QUITGAME;
 		default:
 			return GameType.ERROR;
 		}
-	}
-	public void startSinglePlayerGame() {
-		this.game = new SinglePlayerGame();
-		
 	}
 }

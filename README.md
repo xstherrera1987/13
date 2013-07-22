@@ -13,16 +13,20 @@ contains the main game functionality.  Players, Game Rules, Gameplay, and AI
 are implemented in this project.
 
 ###RMI Net
-the first iteration will be a command line network game and the player lobby and gameplay setup and will be implemented in this project.
+the first iteration will be a command line network game and the player lobby and gameplay setup and will be implemented in this project. this project is using Java RMI.
 
 ###Services
-the second iteration will refactor the RMI Net project into generic Web Services which will be accessible to web, android, and cli clients.
+the second iteration will refactor the RMI Net project into generic Web Services which will be accessible to web, android, and cli clients.  The platform will be Spring MVC (or alternatively Grails).
 
-###Web
+###Webapp
 the web interface will be implemented using a client-side MVC JS framework. It will be implemented using Backbone.js, or alternatively with Angular.js
 
 ###Droid
 the android app will be the last project to be implemented and will most likely target Gingerbread as the minimum OS level.  Further research is necessary to determine more specific requirements.
+
+
+#### misc:
+Java7 is used throughout.  Services and Webapp also use Javascript and may additionally use Groovy2 (sorry Scala+Play, maybe next time)
 
 ----------------------
 

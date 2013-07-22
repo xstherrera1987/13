@@ -2,33 +2,31 @@ package net.joeherrera.Thirteen.gameplay;
 
 import java.net.InetAddress;
 
+
+/**
+ * Authentication token used to uniquely identify players
+ */
 public class Token {
-	final String id;
-	InetAddress address;
-	final int playerNumber;
+	public final int token;
 	
-	public static final Token AI_0 = new Token("AI0", null, 0);
-	public static final Token AI_1 = new Token("AI1", null, 1);
-	public static final Token AI_2 = new Token("AI2", null, 2);
-	public static final Token AI_3 = new Token("AI3", null, 3);
+	public static final Token AI_0 = new Token("Ai0", null);
+	public static final Token AI_1 = new Token("Ai1", null);
+	public static final Token AI_2 = new Token("Ai2", null);
+	public static final Token AI_3 = new Token("Ai3", null);
 	public static final Token[] AIs = { AI_0, AI_1, AI_2, AI_3 };
 	
-	public Token(final String id, final InetAddress address, final int playerNumber) {
-		super();
-		this.id = id;
-		this.address = address;
-		this.playerNumber = playerNumber;
+	public Token(final String name, final InetAddress address) {
+		String both = name + (null != address ? address.toString() : "");
+		this.token = both.hashCode();
 	}
-
-	public InetAddress getAddress() {
-		return this.address;
+	
+	@Override
+	public boolean equals(Object other) {
+		if ( !other.getClass().equals(Token.class) )
+			return false;
+		
+		Token otherToken = (Token) other;
+		return otherToken.token == this.token;
 	}
-
-	public void setAddress(InetAddress address) {
-		this.address = address;
-	}
-
-	public String getId() {
-		return this.id;
-	}
+	@Override public int hashCode() { return this.token; }
 }

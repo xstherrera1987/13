@@ -1,28 +1,23 @@
 package net.joeherrera.Thirteen.gameplay;
 
+import java.net.InetAddress;
+
 import net.joeherrera.Thirteen.core.Ai;
 import net.joeherrera.Thirteen.core.Hand;
 
 public class Player {
+	final Token token;
+	final InetAddress address;
+	final String name;
+	final Ai ai;
+	
+	Hand hand;
 	boolean isAi;
 
-	final String name;
-	Hand hand;
-
-	// play making decisions for ai players
-	// play suggestions for human players
-	final Ai ai;
-
-	// authentication token.
-	// TODO send this to client during initialization to uniquely identify them
-	// for session (web = use cookie, android = send by JSON)
-	final Token token;
-
-	public Player(final String name, final Hand hand, final Ai ai, 
-			final Token token) {
-		this.hand = hand;
+	public Player(final String name, final Ai ai, final Token token, final InetAddress address) {
 		this.ai = ai;
 		this.name = name;
 		this.token = token;
+		this.address = address;
 	}
 }

@@ -8,4 +8,22 @@ public class SinglePlayerGame implements Game {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	@Override
+	public void quitGame() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void start() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public Token registerPlayer(String name) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

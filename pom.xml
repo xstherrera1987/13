@@ -14,7 +14,7 @@
 		<module>core</module>
 		<module>rminet</module>
 		<module>services</module>
-		<module>web</module>
+		<module>webapp</module>
 	</modules>
 
 	<dependencies>
