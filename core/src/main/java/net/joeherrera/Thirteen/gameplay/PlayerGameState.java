@@ -5,8 +5,23 @@ import net.joeherrera.Thirteen.core.*;
  * The state of the game as visibile to a single player. 
  */
 public class PlayerGameState {
-	boolean successfulPlayMade;
+	/**
+	 * the player number for the player whose turn it is
+	 */
+	int playerTurn;
+	
+	/**
+	 * the number of cards that each player has left 
+	 */
 	int[] cardCounts;
-	// TODO consider sending back Card[] and letting the client calculate the Hand
-	Hand h;
+	
+	/**
+	 * the cards left in this player's hand
+	 */
+	Card[] cards;
+	
+	/**
+	 * the current state of the round
+	 */
+	RoundState roundState;
 }

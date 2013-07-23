@@ -30,7 +30,7 @@ public enum Rule {
 	// 4-pair sequence defeats 2 deuces
 	SEQ_PAIRS_4("Sequence of 4 Pairs");
 	
-	Rule(String name) {
+	Rule(final String name) {
 		this.name = name;
 	}
 	

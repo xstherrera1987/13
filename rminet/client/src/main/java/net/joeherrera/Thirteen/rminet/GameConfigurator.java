@@ -31,7 +31,7 @@ public class GameConfigurator {
 			GameType gameType = chooseGameType();
 			switch(gameType) {
 			case SINGLE_PLAYER:
-				this.game= new SinglePlayerGame();
+				this.game = new SinglePlayerGame();
 				this.game.start();
 				break;
 			case MULTIPLAYER:

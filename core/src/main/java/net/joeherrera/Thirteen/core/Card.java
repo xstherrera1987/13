@@ -30,6 +30,9 @@ public enum Card {
 	_7S(SEVEN , SPADES), _6S(SIX , SPADES), _5S(FIVE , SPADES), _4S(FOUR , SPADES),
 	_3S(THREE , SPADES);
 	
+	/**
+	 * The full deck of cards ordered by strength with lower indices stronger.
+	 */
 	public static final Card[] DECK = getDeck();
 	
 	final Rank rank;
@@ -59,11 +62,23 @@ public enum Card {
 		return deck;
 	}
 	
-	public static int cardVal(Rank r, Suit s) {
+	/**
+	 * The value of a card is used to order cards by relative individual strength.
+	 * @param r the rank of the card
+	 * @param s the suit of the card
+	 * @return the integer value of this card
+	 */
+	public static int cardVal(final Rank r, final Suit s) {
 		return (r.val * 4) + s.val;
 	}
-	 
-	public static Card getCard(Rank rank, Suit suit) {
+	
+	/**
+	 * Retrieve a card from a Rank and Suit
+	 * @param rank
+	 * @param suit
+	 * @return the card
+	 */
+	public static Card getCard(final Rank rank, final Suit suit) {
 		return DECK[ cardVal(rank,suit) ];
 	}
 
@@ -72,7 +87,12 @@ public enum Card {
 		return this.rank.name + this.suit.name;
 	}
 	
-	public static String cardArrayToString(Card[] cards) {
+	/**
+	 * Stringify a Card[] for printing
+	 * @param cards the cards to print
+	 * @return a string representing the cards
+	 */
+	public static String cardArrayToString(final Card[] cards) {
 		StringBuffer sb = new StringBuffer();
 		sb.append('[');
 		

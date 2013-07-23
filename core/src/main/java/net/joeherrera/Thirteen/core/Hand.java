@@ -10,10 +10,19 @@ import java.util.List;
  * plays that subsets of cards from this hand can make.
  */
 public class Hand {
-	// a list of possible plays that this hand can make
+	/**
+	 *  a list of possible plays that this hand can make
+	 */
 	List<Play> plays;
-	// the cards in this hand
+	
+	/**
+	 *  the cards in this hand
+	 */
 	final Card[] hand;
+	
+	/**
+	 * the quantity of valid cards in the hand
+	 */
 	int length;
 
 	public Hand(final Card[] hand, final int length) {
@@ -21,7 +30,7 @@ public class Hand {
 		this.length = length;
 	}
 	
-	public Hand(Hand otherHand) {
+	public Hand(final Hand otherHand) {
 		this.hand = new Card[ otherHand.length ];
 		this.length = otherHand.length;		
 		System.arraycopy(otherHand.hand, 0, this.hand, 0, otherHand.length);			
@@ -31,7 +40,7 @@ public class Hand {
 	 * Two hands are equal if they contain the same cards in the same order, 
 	 * regardless of the backing capacity of the Card[].
 	 */
-	@Override public boolean equals(Object other) {
+	@Override public boolean equals(final Object other) {
 		if ( !other.getClass().equals(Hand.class) ) 
 			return false;
 		

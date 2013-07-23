@@ -10,8 +10,9 @@ import net.joeherrera.Thirteen.core.*;
 public interface Game {
 	/**
 	 * Entry point into the rest of the Game.
+	 * @param token the unique identifier for the player
 	 */
-	void start();
+	void start(Token token);
 	
 	/**
 	 * Register this player for a game. The Token returned is subsequently used
@@ -25,13 +26,23 @@ public interface Game {
 	 * Attempt to make a play with the current cards.
 	 * @param cards the cards comprising the play to be made.
 	 * @param token the unique identifier for the player
-	 * @return the state of the game after the play is made. 
+	 * @return a message indicating with success/failure and the state of the 
+	 * game after the play is made. 
 	 */
-	PlayerGameState makePlay(Card[] cards, Token token);
+	MakePlayResponse makePlay(Card[] cards, Token token);
 	
 	/**
-	 * Quit the game. A player will automatically be removed from a game
-	 * after an unspecified period of inactivity.
+	 * Quit the game. This is a courtesy notification since a player will 
+	 * automatically be removed from a game after an unspecified period of 
+	 * inactivity.
+	 * @param token the unique identifier for the player
 	 */
-	void quitGame();
+	void quitGame(Token token);
+	
+	/**
+	 * Retrieve the current state of the game
+	 * @param token the unique identifier for the player
+	 * @return the current state of the game
+	 */
+	PlayerGameState getCurrentState(Token token);
 }
