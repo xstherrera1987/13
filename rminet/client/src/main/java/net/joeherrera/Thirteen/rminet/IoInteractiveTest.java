@@ -25,14 +25,14 @@ public class IoInteractiveTest {
 		
 		String result = null;
 		try {
-			result = testIo.getString("Enter a capital letter: ", pattern, "Not a capital letter");
+			result = testIo.promptForString("Enter a capital letter: ", pattern, "Not a capital letter");
 		} catch(IOException e) { }
 		
 		System.out.println(result);
 	}
 	public static void getCard() {
 		try {
-			Card[] cards = testIo.getCards();
+			Card[] cards = testIo.promptForCards();
 		} catch (IOException e) { }
 	}
 }

@@ -3,9 +3,7 @@
 + *[rminet/client]* refactor GameConfigurator logic and i/o apart in order to reuse logic in droid and webapp
 
 ### Medium Priority
-+ *[core]* player authentication can be simply their IP address hashed against a magic string.
-+ + investigate crypto/hash algorithm implementation common to android/web/java environments.
-+ + + need not be fast because it will be calculated only once
++ *[rmi/server]* use a timer to ping/ack human players and 
 
 ### Low Priority
 + *[core]* use real usernames as a basis for AI fake names
@@ -16,4 +14,6 @@
 + *[droid]* (re)implement droid client
 + *[droid]* create a test project for droid project
 + use JCE [BouncyCastle](http://www.bouncycastle.org/java.html) crypto algorithms to produce Token.
++ + investigate crypto/hash algorithm application usage.
++ + need not be fast because it will be calculated only once
 + use SSL for communication.

@@ -46,6 +46,14 @@ public class Io {
 		} catch (IOException e) { }
 	}
 	
+	/**
+	 * Prompt the user for an integer.
+	 * @param prompt the message displayed to describe the input that is needed
+	 * @param lowerBound lowest acceptable integer value
+	 * @param upperBound highest acceptable integer value
+	 * @return the integer
+	 * @throws IOException
+	 */
 	public int getInteger(String prompt, int lowerBound, int upperBound) 
 			throws IOException {
 		
@@ -57,17 +65,25 @@ public class Io {
 			
 			try {
 				retVal = Integer.parseInt(input);
-				if (lowerBound < retVal && retVal < upperBound)
+				if (lowerBound <= retVal && retVal <= upperBound)
 					return retVal;
 				
-				this.println("Out of range: " + lowerBound + " < x < " + upperBound);
+				this.println("Out of range: " + lowerBound + " <= x <= " + upperBound);
 			} catch (NumberFormatException e) {
 				this.println("Error: input is not a number."); 
 			}
 		}
 	}
 	
-	public String getString(String prompt, Pattern pattern, String errorPrompt) 
+	/**
+	 * Prompt the user for input.
+	 * @param prompt the message displayed to describe the input that is needed
+	 * @param pattern the pattern the input must match
+	 * @param errorPrompt the message displayed if there is an input mismatch
+	 * @return the string the user provided
+	 * @throws IOException
+	 */
+	public String promptForString(String prompt, Pattern pattern, String errorPrompt) 
 			throws IOException {
 		String input = null;
 		Matcher matcher;
@@ -83,10 +99,13 @@ public class Io {
 		}
 	}
 	
-	// precondition: none
-	// postcondition: prompts user for cards to choose, returns integer value of card
-	//		or -1 if user wants to cancel selection
-	public Card[] getCards() throws IOException {
+	// TODO implement a way to cancel card input (cancel pattern)
+	/**
+	 * prompt the user to enter a set of cards
+	 * @return an array of cards
+	 * @throws IOException
+	 */
+	public Card[] promptForCards() throws IOException {
 		final String prompt = "Select Cards: ";
 		final String rankRegex = "([2-9]|10|J|Q|K|A|j|q|k|a)";
 		final String suitRegex = "(h|s|d|c|H|S|D|C|♥|♦|♣|♠)";
@@ -128,6 +147,11 @@ public class Io {
 	}
 	
 	public static final String UNKNOWN_CARD = "[?]";
+	/**
+	 * Get Suit value from a String
+	 * @param suit as a string
+	 * @return actual Suit value (the enum)
+	 */
 	public static Suit getSuit(String suit) {
 		switch(suit) {
 		case "H":
@@ -146,6 +170,12 @@ public class Io {
 			return NULL_SUIT;
 		}
 	}
+	
+	/**
+	 * Get Rank value from a String
+	 * @param rank as a string
+	 * @return actual Rank value (the enum)
+	 */
 	public static Rank getRank(String rank) {
 		switch(rank) {
 		case "2": return TWO;

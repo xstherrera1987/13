@@ -11,8 +11,9 @@ public interface Game {
 	/**
 	 * Entry point into the rest of the Game.
 	 * @param token the unique identifier for the player
+	 * @return the state of the game at the start
 	 */
-	void start(Token token);
+	PlayerGameState start(Token token);
 	
 	/**
 	 * Register this player for a game. The Token returned is subsequently used

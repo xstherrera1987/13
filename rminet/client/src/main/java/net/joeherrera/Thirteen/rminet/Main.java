@@ -16,15 +16,10 @@ public class Main {
 				InteractiveTest.printUsage();
 			}
 		} else {
-			startApplication();
+			try {
+				GameConfigurator.printIntroduction();
+				GameConfigurator.mainMenuLoop();
+			} catch(IOException e) { }
 		}
-	}
-	
-	public static void startApplication() {
-		final GameConfigurator configurator = new GameConfigurator();
-		try {
-			configurator.introduction();
-			configurator.mainMenu();
-		} catch(IOException e) { }
 	}
 }
