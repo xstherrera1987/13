@@ -5,6 +5,7 @@ package net.joeherrera.Thirteen.rminet;
  * to interactive testing methods in other classes. 
  */
 public class InteractiveTest {
+	private InteractiveTest(){}
 	public static void startTest(String[] args) {
 		String[] testArgs = null;
 		if (args.length >= 2) {

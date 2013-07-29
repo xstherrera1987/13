@@ -7,6 +7,13 @@ public class SinglePlayerClient implements Client {
 	public SinglePlayerClient() {
 		this.game = new SinglePlayerGame(this);
 	}
+	
+
+	@Override
+	public void connect() {
+		// TODO Auto-generated method stub
+		
+	}
 
 	@Override
 	public void initiateGame(PlayerGameState state) {

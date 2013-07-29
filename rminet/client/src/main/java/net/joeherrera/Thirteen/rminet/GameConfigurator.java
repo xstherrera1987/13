@@ -5,6 +5,8 @@ import java.util.regex.*;
 import net.joeherrera.Thirteen.gameplay.*;
 
 public class GameConfigurator {
+	private GameConfigurator(){}
+	
 	static final Io io = new Io(System.in, System.out);
 	static Client client;
 	
@@ -25,9 +27,11 @@ public class GameConfigurator {
 			switch(gameType) {
 			case SINGLE_PLAYER:
 				GameConfigurator.client = new SinglePlayerClient();
+				client.connect();
 				break;
 			case MULTIPLAYER:
-				return;
+				// TODO get Game from RMI Registry, connect()
+				break;
 			case QUITGAME:
 				return;
 			case ERROR:
@@ -41,9 +45,9 @@ public class GameConfigurator {
 	// TODO test interactively
 	public static GameType promptForGameType() throws IOException {
 		GameConfigurator.io.println("Choose a Game Type.");
-		final String prompt = "1: SinglePlayer\nM: Multiplayer\nQ: Quit";
+		final String prompt = "1: SinglePlayer\nM: Multiplayer\nQ: Quit\n>";
 		final String gameType = GameConfigurator.io.promptForString(prompt, 
-				Pattern.compile("1|M|m|Q|q"), "Error: " + prompt);
+				Pattern.compile("1|M|m|Q|q"), "Input Error: Not a Game type.");
 		switch(gameType) {
 		case "1":
 			return GameType.SINGLE_PLAYER;
@@ -54,5 +58,9 @@ public class GameConfigurator {
 		default:
 			return GameType.ERROR;
 		}
+	}
+	public static void exitMessage() {
+		GameConfigurator.io.println("************************");
+		GameConfigurator.io.println("13 exiting...");
 	}
 }

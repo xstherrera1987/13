@@ -1,9 +1,10 @@
 ### High Priority
 + *[rminet/client]*, *[core/gameplay]* implement single player game
-+ *[rminet/client]* refactor GameConfigurator logic and i/o apart in order to reuse logic in droid and webapp
+
 
 ### Medium Priority
-+ *[rmi/server]* use a timer to ping/ack human players and 
++ *[rmi/server]* use a timer to ping/ack human players
++ *[rminet/client]* refactor GameConfigurator logic and i/o apart in order to reuse logic in droid and webapp
 
 ### Low Priority
 + *[core]* use real usernames as a basis for AI fake names

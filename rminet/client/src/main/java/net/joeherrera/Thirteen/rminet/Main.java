@@ -19,6 +19,7 @@ public class Main {
 			try {
 				GameConfigurator.printIntroduction();
 				GameConfigurator.mainMenuLoop();
+				GameConfigurator.exitMessage();
 			} catch(IOException e) { }
 		}
 	}

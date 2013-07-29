@@ -6,6 +6,8 @@ import java.util.regex.Pattern;
 import net.joeherrera.Thirteen.core.Card;
 
 public class IoInteractiveTest {
+	private IoInteractiveTest(){}
+	
 	static Io testIo = new Io();
 	
 	public static void getInteger() {

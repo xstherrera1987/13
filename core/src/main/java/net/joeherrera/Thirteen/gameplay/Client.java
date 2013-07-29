@@ -6,19 +6,27 @@ package net.joeherrera.Thirteen.gameplay;
  */
 public interface Client {
 	/**
-	 * Indicates that this client should initiate the game now.
+	 * Connect to a Game and configure gameplay.  This starts the game.
+	 */
+	void connect();
+	
+	/**
+	 * Games will instruct clients when they should initiate the game.  This
+	 * indicates that this client can start now.
 	 * @param state the state of the game
 	 */
 	void initiateGame(PlayerGameState state);
 	
 	/**
-	 * Indicates that this client should initiate a new round now.
+	 * Games will instruct clients when they can initiate a round. This 
+	 * indicates that this client can initiate a new round now.
 	 * @param state the state of the game
 	 */
 	void initiateRound(PlayerGameState state);
 	
 	/**
-	 * Indicates that this client should make a play now.
+	 * Games will instruct clients when it is their turn. This 
+	 * indicates that this client can make a play now.
 	 * @param state the state of the game
 	 */
 	void playRound(PlayerGameState state);
