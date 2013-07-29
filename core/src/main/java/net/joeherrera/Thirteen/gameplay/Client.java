@@ -5,6 +5,7 @@ package net.joeherrera.Thirteen.gameplay;
  * Clients respond to game events and communicated by Game implementations.  
  */
 public interface Client {
+	// TODO redesign this method for multiple threads (game vs client)
 	/**
 	 * Connect to a Game and configure gameplay.  This starts the game.
 	 */

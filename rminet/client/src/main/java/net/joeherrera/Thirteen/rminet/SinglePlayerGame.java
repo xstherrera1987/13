@@ -3,9 +3,17 @@ import net.joeherrera.Thirteen.core.*;
 import net.joeherrera.Thirteen.gameplay.*;
 
 public class SinglePlayerGame implements Game {
+	final SinglePlayerClient client;
+	public SinglePlayerGame(SinglePlayerClient client) {
+		this.client = client;
+	}
+	
 	@Override
 	public PlayerGameState start(final Token token) {
 		// TODO Auto-generated method stub
+		
+		// TODO call or implement game loop here
+		
 		return null;
 	}
 
@@ -31,10 +39,5 @@ public class SinglePlayerGame implements Game {
 	public PlayerGameState getCurrentState(final Token token) {
 		// TODO Auto-generated method stub
 		return null;
-	}
-
-	final SinglePlayerClient client;
-	public SinglePlayerGame(SinglePlayerClient client) {
-		this.client = client;
 	}
 }

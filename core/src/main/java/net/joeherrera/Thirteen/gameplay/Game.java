@@ -8,6 +8,7 @@ import net.joeherrera.Thirteen.core.*;
  * interact with Client implementations to provide gameplay.
  */
 public interface Game {
+	// TODO redesign this method for multiple threads (game vs client)
 	/**
 	 * Entry point into the rest of the Game.
 	 * @param token the unique identifier for the player

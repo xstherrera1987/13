@@ -8,7 +8,6 @@ public class GameConfigurator {
 	private GameConfigurator(){}
 	
 	static final Io io = new Io(System.in, System.out);
-	static Client client;
 	
 	public enum Action {
 		MAKE_PLAY, QUIT_GAME, SKIP_TURN, MAIN_MENU
@@ -26,8 +25,7 @@ public class GameConfigurator {
 			GameType gameType = promptForGameType();
 			switch(gameType) {
 			case SINGLE_PLAYER:
-				GameConfigurator.client = new SinglePlayerClient();
-				client.connect();
+				new SinglePlayerClient(GameConfigurator.io).connect();
 				break;
 			case MULTIPLAYER:
 				// TODO get Game from RMI Registry, connect()

@@ -1,5 +1,6 @@
 ### High Priority
 + *[rminet/client]*, *[core/gameplay]* implement single player game
++ *[rminet/client]* put client and game on separate threads
 
 
 ### Medium Priority
